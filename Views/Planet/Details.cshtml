@@ -1,0 +1,16 @@
+﻿@model MVCApp.Models.Planet
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = Model.Name;
+}
+@{
+    var imageName = $"/images/{Model.Name}.jpg";
+}
+<div class="card">
+    <img src="@imageName" class="card-img-top w-50" alt="Planet">
+  <div class="card-body">
+    <h5 class="card-title">@Model.Name - @Model.VName</h5>
+    <p class="card-text">@Model.Description</p>
+    <a asp-action="Index" class="btn btn-primary">Planet List</a>
+  </div>
+</div>

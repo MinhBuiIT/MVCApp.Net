@@ -1,0 +1,31 @@
+﻿@inject MVCApp.Services.PlanetService planetService
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Planet List";
+}
+<table class="table table-striped">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>VName</th>
+        <th>Image</th>
+    </thead>
+    <tbody>
+        @foreach(var planet in planetService)
+        {
+            <tr>
+                <td><a asp-action="PlanetInfo" asp-route-id="@planet.Id">@planet.Id</a></td>
+                <td>
+                    <a asp-action="@planet.Name">@planet.Name</a>
+                </td>
+                <td>@planet.VName</td>
+                <td>
+                    @{
+                        var imageName = planet.Name + ".jpg";
+                    }
+                    <img src="~/images/@imageName" alt="Planet" width="150" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
