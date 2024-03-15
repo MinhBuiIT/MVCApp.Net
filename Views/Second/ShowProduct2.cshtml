@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    var product = ViewData["product"] as Product;
+    ViewData["Title"] = product.Name;
+}
+<div class="card bg-success text-white">
+    <div class="card-header"> @product.Name</div>
+    <div class="card-footer">
+        Giá sản phẩm @product.Price
+    </div>
+
+</div>
+<p>@this.Path</p>
